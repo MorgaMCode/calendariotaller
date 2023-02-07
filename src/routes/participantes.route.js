@@ -1,12 +1,15 @@
 import { Router } from "express";
-import { getParticipantes,postParticipantes } from "../controllers/participantesController.js";
+import { ParticipantesControllers } from "../controllers/participantesController.js";
 
 
 const router = Router()
+const participantesController = new ParticipantesControllers
+const rout = '/api/participantes';
 
 
-router.get("/participantes",getParticipantes);
-router.post("/participantes",postParticipantes);
+router.get(`${rout}`,participantesController.fetchAll);
+router.get(`${rout}/:id`,participantesController.getParticipante);
+router.post(`${rout}`,participantesController.createParticipantes);
 
 
 

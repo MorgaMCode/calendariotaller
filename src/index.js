@@ -1,14 +1,16 @@
 import express from 'express'
 import {pool} from './db.js'
-import eventosrouter from './routes/eventos.route.js'
-import participantesrouter from './routes/participantes.route.js'
+import eventosRouter from './routes/eventos.route.js'
+import participantesRouter from './routes/participantes.route.js'
+import  participantesPorEventoRouter  from './routes/participantesPorEvento.route.js'
 
 const app = express()
 
 app.use(express.json())
 
-app.use(eventosrouter)
-app.use(participantesrouter)
+app.use(eventosRouter)
+app.use(participantesRouter)
+app.use(participantesPorEventoRouter);
 
 
 
